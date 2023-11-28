@@ -91,6 +91,9 @@ public final class LambdaUtilities {
                 return totSet;
             });
         });
+        /*Is useful to create a Union function, for a one line lambda, or import it from Guava, 
+         * classe Sets, metodo Union
+         */
         /*
          * Suggestion: consider Map.merge
          */
