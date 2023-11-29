@@ -84,15 +84,14 @@ public final class LambdaUtilities {
     public static <R, T> Map<R, Set<T>> group(final List<T> list, final Function<T, R> op) {
         final Map<R, Set<T>> retMap = new HashMap<>();
         list.forEach(t -> {
-            retMap.merge(op.apply(t), Set.of(t),   (set1, set2) -> {
-                final Set<T> totSet = new HashSet<>();
-                totSet.addAll(set1);
+            retMap.merge(op.apply(t), Set.of(t), (set1, set2) -> {
+                final Set<T> totSet = new HashSet<>(set1);
                 totSet.addAll(set2);
                 return totSet;
             });
         });
         /*Is useful to create a Union function, for a one line lambda, or import it from Guava, 
-         * classe Sets, metodo Union
+         * class Sets, method Union
          */
         /*
          * Suggestion: consider Map.merge
